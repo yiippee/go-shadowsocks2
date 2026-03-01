@@ -66,6 +66,8 @@ func main() {
 	flag.DurationVar(&config.UDPTimeout, "udptimeout", 5*time.Minute, "UDP tunnel timeout")
 	flag.Parse()
 
+	// 写死server
+	flags.Server = "ss://AEAD_CHACHA20_POLY1305:mytest-i123456@:8488"
 	if flags.Keygen > 0 {
 		key := make([]byte, flags.Keygen)
 		io.ReadFull(rand.Reader, key)
